@@ -3,9 +3,7 @@ import pickle
 import numpy as np
 import os
 
-# ---------------------------
-# Load trained model
-# ---------------------------
+
 model_path = "model.pkl"  # relative path, must be in same folder as app.py
 
 if not os.path.exists(model_path):
@@ -13,13 +11,10 @@ if not os.path.exists(model_path):
 else:
     with open(model_path, "rb") as f:
         model = pickle.load(f)
-
     st.title("🚀 Employee Resignation Prediction App")
     st.write("Fill the details below to predict whether an employee is likely to resign.")
 
-    # ---------------------------
-    # User inputs (ordered same as dataset)
-    # ---------------------------
+   
     department = st.selectbox("Department", [
         "Sales", "Marketing", "Operations", "Customer Support",
         "Legal", "Finance", "IT", "HR", "Engineering"
@@ -44,9 +39,7 @@ else:
     promotions = st.number_input("Promotions", min_value=0, max_value=10, step=1)
     satisfaction = st.slider("Employee Satisfaction Score", 0.0, 10.0, 5.0)
 
-    # ---------------------------
-    # Encode categorical features
-    # ---------------------------
+    
     dept_map = {'Sales': 0, 'Marketing': 1, 'Operations': 2, 'Customer Support': 3,
                 'Legal': 4, 'Finance': 5, 'IT': 6, 'HR': 7, 'Engineering': 8}
     gender_map = {'Other': 0, 'Male': 1, 'Female': 2}
@@ -54,9 +47,7 @@ else:
                'Specialist': 4, 'Developer': 5, 'Consultant': 6}
     edu_map = {'High School': 0, 'Bachelor': 1, 'Master': 2, 'PhD': 3}
 
-    # ---------------------------
-    # Feature vector
-    # ---------------------------
+   
     features = np.array([[ 
         dept_map[department],
         gender_map[gender],
@@ -77,9 +68,7 @@ else:
         satisfaction
     ]])
 
-    # ---------------------------
-    # Prediction
-    # ---------------------------
+   
     if st.button("Predict Resignation"):
         prediction = model.predict(features)[0]
         prob = model.predict_proba(features)[0][1]
