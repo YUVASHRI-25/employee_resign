@@ -1,6 +1,8 @@
 ## 📌 PROJECT
 
 This dataset contains **100,000 employee records** with **20 features**, capturing a wide range of information related to employee demographics, performance, productivity, and retention. It can be used for **HR analytics, employee churn prediction, performance evaluation, salary prediction, and workforce productivity analysis**.
+
+
 TRY WITH STREAMLIT:https://employeeresign-7.streamlit.app/
 ---
 
