@@ -51,7 +51,8 @@ overtime = st.number_input("Overtime Hours", min_value=0, max_value=100, step=1)
 
 sick_days = st.number_input("Sick Days", min_value=0, max_value=30, step=1)
 
-remote_work = st.slider("Remote Work Frequency", 0, 5, 2)
+Remote_Work_Frequency = st.slider("Remote Work Frequency", 0, 100, 2)
+
 
 team_size = st.number_input("Team Size", min_value=1, max_value=50, step=1)
 
@@ -92,7 +93,7 @@ features = np.array([[
     projects,                      # Projects Handled
     overtime,                      # Overtime Hours
     sick_days,                     # Sick Days
-    remote_work,                   # Remote Work Frequency
+    Remote_Work_Frequency,         # Remote Work Frequency
     team_size,                     # Team Size
     training_hours,                # Training Hours
     promotions,                    # Promotions
